@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="casaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="NR">
+          <Key>
+            <PropertyRef Name="OBJECTID" />
+          </Key>
+          <Property Name="OBJECTID" Type="int" Nullable="false" />
+          <Property Name="Reference_" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Prenom" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Societe" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Qualite" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nature_ter" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Zonage" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="indice_Equ" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Voirie" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Autres" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NR_Id" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Etat" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SHAPE_STAr" Type="numeric" Precision="38" Scale="8" Nullable="false" />
+          <Property Name="SHAPE_STLe" Type="numeric" Precision="38" Scale="8" Nullable="false" />
+          <Property Name="SHAPE" Type="geometry" />
+        </EntityType>
+        <EntityContainer Name="casaModelStoreContainer">
+          <EntitySet Name="NR" EntityType="Self.NR" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="casaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="NR">
+          <Key>
+            <PropertyRef Name="OBJECTID" />
+          </Key>
+          <Property Name="OBJECTID" Type="Int32" Nullable="false" />
+          <Property Name="Reference_" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Prenom" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Societe" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Qualite" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Nature_ter" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Zonage" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="indice_Equ" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Voirie" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Autres" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NR_Id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Etat" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SHAPE_STAr" Type="Decimal" Precision="38" Scale="8" Nullable="false" />
+          <Property Name="SHAPE_STLe" Type="Decimal" Precision="38" Scale="8" Nullable="false" />
+          <Property Name="SHAPE" Type="Geometry" />
+        </EntityType>
+        <EntityContainer Name="casaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="NR" EntityType="Self.NR" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="casaModelStoreContainer" CdmEntityContainer="casaEntities">
+          <EntitySetMapping Name="NR">
+            <EntityTypeMapping TypeName="casaModel.NR">
+              <MappingFragment StoreEntitySet="NR">
+                <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+                <ScalarProperty Name="Reference_" ColumnName="Reference_" />
+                <ScalarProperty Name="Prenom" ColumnName="Prenom" />
+                <ScalarProperty Name="Societe" ColumnName="Societe" />
+                <ScalarProperty Name="Qualite" ColumnName="Qualite" />
+                <ScalarProperty Name="Nature_ter" ColumnName="Nature_ter" />
+                <ScalarProperty Name="Zonage" ColumnName="Zonage" />
+                <ScalarProperty Name="indice_Equ" ColumnName="indice_Equ" />
+                <ScalarProperty Name="Voirie" ColumnName="Voirie" />
+                <ScalarProperty Name="Autres" ColumnName="Autres" />
+                <ScalarProperty Name="NR_Id" ColumnName="NR_Id" />
+                <ScalarProperty Name="Etat" ColumnName="Etat" />
+                <ScalarProperty Name="SHAPE_STAr" ColumnName="SHAPE_STAr" />
+                <ScalarProperty Name="SHAPE_STLe" ColumnName="SHAPE_STLe" />
+                <ScalarProperty Name="SHAPE" ColumnName="SHAPE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Aucun" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

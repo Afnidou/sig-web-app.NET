@@ -1,0 +1,94 @@
+﻿@model IEnumerable<WebApplication3.Models.NR>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<h1></h1>
+
+<p>
+    &emsp;&emsp; &emsp; @Html.ActionLink("Create New", "Create")
+</p>
+
+<p>
+    &emsp;&emsp; &emsp;  @Html.ActionLink("Statistic", "Stat")
+</p>
+<h1></h1>
+<div class="container spacer">
+    <form method="post" action="/NRs/Chercher">
+        <div class="form-group">
+            <label>Etat:</label>
+            <input type="text" name="Etat" value="@Html.ViewBag.Etat" />
+            <label>Id:</label>
+            <input type="text" name="NR_Id" value="@Html.ViewBag.NR_Id" />
+            <button type="submit">Chercher</button>
+
+        </div>
+    </form>
+</div>
+
+<h1></h1>
+
+<table class="table  table-striped ">
+    <tr>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.NR_Id)
+        </th>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.Reference_)
+        </th>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.Etat)
+        </th>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.Prenom)
+        </th>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.Societe)
+        </th>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.Qualite)
+
+        </th>
+
+        <th scope="col">
+
+
+        </th>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NR_Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Reference_)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Etat)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Prenom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Societe)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Qualite)
+            </td>
+
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.OBJECTID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.OBJECTID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.OBJECTID })
+                @Html.ActionLink("Zoom", "zoom", new { id = item.OBJECTID })
+            </td>
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="casaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="NR">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" Nullable="false" />
+    <Property Name="Reference_" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Prenom" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Societe" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Qualite" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Nature_ter" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Zonage" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="indice_Equ" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Voirie" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Autres" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="NR_Id" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Etat" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="SHAPE_STAr" Type="numeric" Precision="38" Scale="8" Nullable="false" />
+    <Property Name="SHAPE_STLe" Type="numeric" Precision="38" Scale="8" Nullable="false" />
+    <Property Name="SHAPE" Type="geometry" />
+  </EntityType>
+  <EntityContainer Name="casaModelStoreContainer">
+    <EntitySet Name="NR" EntityType="Self.NR" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

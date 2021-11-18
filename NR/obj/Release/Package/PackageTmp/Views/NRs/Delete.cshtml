@@ -1,0 +1,137 @@
+﻿@model WebApplication3.Models.NR
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+
+<br />
+<br />
+
+<h2>&emsp;&emsp; &emsp; Are you sure you want to delete this?</h2>
+<br />
+<br />
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Reference_)
+
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Reference_)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Prenom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Prenom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Societe)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Societe)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Qualite)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Qualite)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nature_ter)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nature_ter)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Zonage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Zonage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.indice_Equ)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.indice_Equ)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Voirie)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Voirie)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Autres)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Autres)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NR_Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NR_Id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Etat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Etat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SHAPE_STAr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SHAPE_STAr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SHAPE_STLe)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SHAPE_STLe)
+        </dd>
+
+
+
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

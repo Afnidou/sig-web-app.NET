@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="casaModelStoreContainer" CdmEntityContainer="casaEntities">
+    <EntitySetMapping Name="NR">
+      <EntityTypeMapping TypeName="casaModel.NR">
+        <MappingFragment StoreEntitySet="NR">
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+          <ScalarProperty Name="Reference_" ColumnName="Reference_" />
+          <ScalarProperty Name="Prenom" ColumnName="Prenom" />
+          <ScalarProperty Name="Societe" ColumnName="Societe" />
+          <ScalarProperty Name="Qualite" ColumnName="Qualite" />
+          <ScalarProperty Name="Nature_ter" ColumnName="Nature_ter" />
+          <ScalarProperty Name="Zonage" ColumnName="Zonage" />
+          <ScalarProperty Name="indice_Equ" ColumnName="indice_Equ" />
+          <ScalarProperty Name="Voirie" ColumnName="Voirie" />
+          <ScalarProperty Name="Autres" ColumnName="Autres" />
+          <ScalarProperty Name="NR_Id" ColumnName="NR_Id" />
+          <ScalarProperty Name="Etat" ColumnName="Etat" />
+          <ScalarProperty Name="SHAPE_STAr" ColumnName="SHAPE_STAr" />
+          <ScalarProperty Name="SHAPE_STLe" ColumnName="SHAPE_STLe" />
+          <ScalarProperty Name="SHAPE" ColumnName="SHAPE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

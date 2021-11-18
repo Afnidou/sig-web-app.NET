@@ -1,0 +1,277 @@
+﻿@model WebApplication3.Models.NR
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Détails sur lesite</title>
+    <link rel="stylesheet" href="http://js.arcgis.com/3.20/dijit/themes/nihilo/nihilo.css">
+    <link rel="stylesheet" href="http://js.arcgis.com/3.20/esri/css/esri.css">
+    <script src="http://js.arcgis.com/3.20/"></script>
+    <link href="~/css/monStyle.css" rel="stylesheet" />
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" />
+    <script>
+        var mapMain;
+        require([
+            "esri/map",
+            "esri/tasks/query",
+            "esri/geometry/Extent",
+            "esri/layers/ArcGISDynamicMapServiceLayer",
+            "esri/layers/FeatureLayer",
+            "esri/dijit/BasemapToggle",
+            "esri/dijit/BasemapGallery",
+            "esri/dijit/Legend",
+            "dojo/ready",
+            "dojo/parser",
+            "dojo/on",
+            "dijit/layout/BorderContainer",
+            "dijit/layout/ContentPane",
+            "dijit/form/Button"
+        ],
+            function (Map, Query, Extent, ArcGISDynamicMapServiceLayer, FeatureLayer, BasemapToggle,
+                BasemapGallery, Legend,
+                ready, parser, on,
+                BorderContainer, ContentPane, Button) {
+
+                ready(function () {
+                    // Parse DOM nodes decorated with the data-dojo-type attribute
+                    parser.parse();
+                    // Create the map
+                    mapMain = new Map("carteFrame2", {
+                        basemap: "satellite",
+                        center: [-7.62, 33.59],
+                        zoom: 11
+
+                    });
+
+                    var NR = new FeatureLayer("http://localhost:6080/arcgis/rest/services/NR/FeatureServer/0");
+                    mapMain.addLayers([NR]);
+                    mapMain.on("layers-add-result", function () {
+                    var query = new Query();
+                   query.objectIds = [ @Html.DisplayFor(model => model.OBJECTID)];
+                        NR.selectFeatures(query, FeatureLayer.SELECTION_NEW, function (features) {
+                    //zoom to the selected feature
+                    var stateExtent = features[0].geometry.getExtent().expand(3.0);
+                     mapMain.setExtent(stateExtent);
+ });
+ });
+                });
+            });
+    </script>
+
+</head>
+<body>
+    <div id="carteFrame2"></div>
+    <h1></h1>
+    @*<div id="sara">
+
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Reference_)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Reference_)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Prenom)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Prenom)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Societe)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Societe)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Qualite)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Qualite)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Nature_ter)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Nature_ter)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Zonage)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Zonage)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.indice_Equ)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.indice_Equ)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Voirie)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Voirie)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Autres)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Autres)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.NR_Id)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.NR_Id)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Etat)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Etat)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.SHAPE_STAr)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.SHAPE_STAr)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.SHAPE_STLe)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.SHAPE_STLe)
+                </dd>
+            </dl>
+        </div>*@
+
+<table class="table  table-striped ">
+    <thead>
+        <tr>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Reference_)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Prenom)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Societe)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Qualite)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Nature_ter)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Zonage)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.indice_Equ)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Voirie)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Autres)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.NR_Id)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Etat)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.SHAPE_STAr)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.SHAPE_STLe)
+            </th>
+
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                @Html.DisplayFor(model => model.Reference_)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Prenom)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Societe)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Qualite)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Nature_ter)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Zonage)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.indice_Equ)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Voirie)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Autres)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.NR_Id)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Etat)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.SHAPE_STAr)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.SHAPE_STLe)
+            </td>
+
+
+        </tr>
+
+    </tbody>
+</table>
+
+    <p>
+        @Html.ActionLink("Retour à la liste des sites d’acceuil", "Index")
+    </p>
+</body>
